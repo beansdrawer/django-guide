@@ -2,6 +2,8 @@ from django.shortcuts import render
 
 from django.http import HttpRequest, HttpResponse
 from django.shortcuts import render
+from myapp.models import Item
+
 
 # def index(request: HttpRequest) -> HttpResponse:
 #     return render(
@@ -11,10 +13,13 @@ from django.shortcuts import render
 #     )
 
 def index(request) :
+
+    item_qs = Item.objects.all()
+
     return render(
         request=request,
         template_name="myapp/index.html",
         context={
-            "content" : "This is the content."
+            "item_qs" : item_qs
         },
     )

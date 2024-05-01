@@ -1,3 +1,5 @@
-<h1>
-  This is the part.
-</h1>
+{% for item in item_qs %}
+<div>
+    {{ item.name }} | {{ item.note }}
+</div>
+{% endfor %}
