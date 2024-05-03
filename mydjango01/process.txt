@@ -1,0 +1,39 @@
+진행 절차
+
+첫 단계
+1. 가상환경 생성 및 활성화
+py --list  
+py -3.11 -m venv venv
+2. 프로젝트 진행을 위한 폴더 생성 후 진입
+3. pip install django~=4.2.0
+4. python -m django startproject mysite . 또는 django-admin startproject mysite .
+=> VSCODE Meterial Icon Theme 추천도 ㄱㅊ
+
+프로젝트 초기화 작업
+1. settings.py > LANGUAGE_CODE = 'ko-kr'
+2. python .\manage.py runserver 0.0.0.0:9000
+3. python .\manage.py migrate # 마이그레이션
+4. python .\manage.py createsuperuser # 관리자(슈퍼유저) 생성
+5. python .\manage.py runserver
+6. http://localhost:8000/admin
+
+디버깅 방법은 상황 봐서 하던지 말던지
+
+장고를 이용한 웹문서 서비스
+1. python manage.py startapp myapp
+2. myapp/urls.py 수정
+3. myapp/apps.py 수정
+4. mysite/urls.py 수정
+5. mysite/settings.py 수정 (앱 추가)
+6. myapp/views.py 수정 (index 뷰 함수 추가)
+7. myapp/urls.py 수정 (뷰 함수 루트 추가)
+8. 템플릿 추가 및 서버 재실행
+
+장고 모델과 데이터베이스
+1. myapp/models.py 수정
+2. python .\manage.py makemigrations myapp
+3. python .\manage.py migrate myapp
+4. myapp/admin.py 에 모델 등록
+5. admin 들어가서 데이터 추가 가능
+6. 뷰 수정해서 데이터 반영 가능
+7. 템플릿도 수정 필요
